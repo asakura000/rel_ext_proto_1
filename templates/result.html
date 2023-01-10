@@ -1,0 +1,119 @@
+<!----
+This code was adapted from:
+Author: Unlisted
+https://sarahleejane.github.io/learning/python/2015/08/09/simple-tables-in-webapps-using-flask-and-pandas-with-python.html
+Accessed: October 2022
+---->
+
+
+{% extends "layout.html"%}
+{% block content %}
+<body>
+	<h1 class="text-primary"> List of Relational Triples Extracted from Your Text</h1>
+	<div id=dropdowngroup>
+		<div class="row">
+			<div class="col">
+				<label for="dropdownMenu_n1"> Filter Noun 1 </label>
+
+				<form method="POST" action="{{ url_for('result') }}">
+					
+					<select name="dropdownMenu_n1">
+						<option></option>
+
+						{% for r in dropdownMenu_n1 %}
+							<option value="{{ r }}" SELECT> {{ r }} </option>
+						{% endfor %}
+					</select>
+
+					<button type="submit" name="filter_n1" value="filter_n1"> Filter Noun 1 </button>
+
+					<h4> You selected: {{ selected_text_n1 }} </h4>
+
+				</form>
+			</div>
+
+			<div class="col">
+				<label for="dropdownMenu_rl"> Filter Relation Labels </label>
+
+				<form method="POST" action="{{ url_for('result') }}">
+					
+					<select name="dropdownMenu_rl">
+						<option></option>
+
+						{% for r in dropdownMenu_rl %}
+							<option value="{{ r }}" SELECT> {{ r }} </option>
+						{% endfor %}
+					</select>
+
+					<button type="submit" name="filter_rl" value="filter_rl"> Filter Relation Labels </button>
+
+					<h4> You selected: {{ selected_text_rl }} </h4>
+
+				</form>
+			</div>
+
+			<div class="col">
+				<label for="dropdownMenu_n2"> Filter Noun 2 </label>
+
+				<form method="POST" action="{{ url_for('result') }}">
+					
+					<select name="dropdownMenu_n2">
+						<option></option>
+
+						{% for r in dropdownMenu_n2 %}
+							<option value="{{ r }}" SELECT> {{ r }} </option>
+						{% endfor %}
+					</select>
+
+					<button type="submit" name="filter_n2" value="filter_n2"> Filter Noun 2 </button>
+
+					<h4> You selected: {{ selected_text_n2 }} </h4>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- top row: column headers -->
+	<div class="row">
+	  <div class="col"> <h2> Noun 1 </h2></div>
+	  <div class="col"> <h2> Related By </h2></div>
+	  <div class="col"> <h2> Noun 2 </h2></div>
+	</div>
+	{% for column, cells in results.items() %}
+	<div class="row">
+		<div class="col">
+			<div class="noun_1">
+				{% if cells["noun_1_id"] == "id-less" %}
+				<!-- code adapted from https://www.googleguide.com/linking.html -->
+				<h4 class="result_text"><a href="https://www.google.com/search?q={{ cells['noun_1_google']}}" target="_blank">{{ cells["noun_1"] }} </a></h4>
+				{% else %}
+				<h4 class="result_text"><a href="https://en.wikipedia.org/wiki/{{ cells['noun_1_wiki_page'] }}" target="_blank">{{ cells["noun_1"] }} </a></h4>
+				{% endif %}
+			</div>
+		</div>
+		<div class="col">
+			<div class="relation_label">
+				<h4 class="result_text"> {{ cells["related_by"] }} </h4>
+			</div>
+		</div>
+		<div class="col">
+			<div class=noun_2>
+				{% if cells["noun_2_id"] == "id-less" %}
+				<!-- code adapted from https://www.googleguide.com/linking.html -->
+				<h4 class="result_text"><a href="https://www.google.com/search?q={{ cells['noun_2_google']}}" target="_blank">{{ cells["noun_2"] }} </a></h4>
+				{% else %}
+				<h4 class="result_text"><a href="https://en.wikipedia.org/wiki/{{cells['noun_2_wiki_page']}}" target="_blank">{{ cells["noun_2"] }} </a></h4>
+				{% endif %}
+			</div>
+		</div>
+    </div>
+   {% endfor %}
+</body>
+{% endblock content %}
+
+
+
+
+  
+    

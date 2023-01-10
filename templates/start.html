@@ -1,0 +1,58 @@
+<!-- This code was adapted from 
+	This code was adapted from a series of videos by: 
+	Author: Corey Schafer
+	https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH
+	Accessed: October 2022
+-->
+
+{% extends "layout.html" %}
+{% block content %}
+<body>
+	<h1 class="text-primary"><strong> Start Here </strong><h1>
+	<main>
+		<div>
+	       <form action="{{ url_for('start') }}" method="POST">
+	        <fieldset class="userInputFieldset">
+	            <legend class="legendText">Paste your text here: (recommended text length 100 words or less) </legend>
+		         <textarea class="typeBox" name="user_input_text" type="text" autocomplete="off" required></textarea>
+	            <button type="submit" class="submitButton" onclick="checkClicked()">Submit</button>
+	        </fieldset>
+	       </form>
+		</div>
+		<div>
+			<div class="container">
+		</div>
+		</div>
+		<div>
+			<h3> Feel free to paste whatever text you want, but here are some links to get you started: </h3>
+			<ul>
+				<li><a href="https://www.nytimes.com/section/world" target="_blank"> New York Times World Section </a></li>
+				<li><a href="https://www.reuters.com/world/" target="_blank"> Reuters World News </a></li>
+				<li><a href="https://www.bbc.com/news/world" target="_blank"> BBC World News </a></li>
+				<li><a href="https://apnews.com" target="_blank"> AP News </a></li>
+			</ul>
+		</div>
+	</main>
+	<script>
+		function checkClicked(){
+		    alert('Click "Close" to begin the model. FYI this will take a while.')
+		}; 
+
+	</script>
+</body>
+{% endblock content %}
+
+
+<!--
+document.getElementById("btn").addEventListener(
+  "click",
+  function(event) {
+    if (event.target.value === "Save") {
+      event.target.value = "Saved";
+    } else {
+      event.target.value = "Save";
+    }
+  },
+  false
+);
+-->

@@ -1,0 +1,398 @@
+/*
+  This code was adapted from a series of videos by: 
+  Author: Corey Schafer
+  https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH
+  Accessed: October 2022
+
+  Also from:
+  Author: W.S. Toh
+  https://code-boxx.com/css-circles-text/ 
+  Accessed: November 2022
+*/
+
+body {
+  background: #B6E9F3;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+/*
+button {
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  border-radius: 20px;
+  border: 2px solid black;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+button:hover {
+  background-color: gray;
+}
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+mark {
+  background-color: yellow;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+button:focus{
+  outline: none;
+}
+
+.mainDiv{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 80%;
+  height: 200px;
+}
+
+.mainDiv > button{
+  background: #2c3e50;
+  padding: 14px 25px;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mainDiv > button:hover{
+  background: #34495e;
+}
+
+.mainDiv > .progressDiv{
+  width: 100%;
+  height: 30px;
+  background: #34495ecc;
+}
+
+.mainDiv > .progressDiv > .progress{
+  width: 0%;
+  height: 30px;
+  background: #2c3e50;
+}
+
+.mainDiv > h2{
+  font-family: sans-serif;
+  color: #2c3e50;
+}
+
+/
+
+.circle-txt {
+  /* (E1) CENTER TEXT IN CIRCLE */
+  position: center;
+  bottom: 100%;
+  width: 100%;
+  text-align: center;
+ 
+  /* (E2) THE FONT - NOT REALLY IMPORTANT */
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  padding: 100px 100ps 100px 100px;
+}
+
+.res-circle-noun1 {
+  width: 200px;
+  height:  200px;
+  border-radius: 50%;
+  background-color: yellow;
+  margin:  10px 10px 10px 10px;
+}
+
+.res-circle-relationLabel {
+  width: 200px;
+  height:  200px;
+  border-radius: 50%;
+  background-color: deepskyblue;
+  margin:  10px 10px 10px 10px;
+}
+
+.res-circle-noun2 {
+  width:  200px;
+  height:  200px;
+  border-radius: 50%;
+  background-color: limegreen;
+  margin:  10px 10px 10px 10px;
+}
+
+.result_text {
+  padding-top: 6px;
+}
+
+.message {
+  height: 50px;
+  width:  500px;
+  background-color: yellow;
+}
+
+.relation_label {
+  background-color: #F43A3A;
+  border-radius: 10px;
+  min-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 10px;
+}
+
+.noun_1 {
+  background-color: yellow;
+  border-radius: 10px;
+  min-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 10px;
+}
+
+.noun_2 {
+  background-color: #12F119;
+  border-radius: 10px;
+  min-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 10px;
+}
+
+.annot_box {
+  padding: 2px 2px 2px 2px;
+}
+
+.popover {
+  background-color: #33FF3F;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px 20px 10px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+  background-color: purple;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.between-buttons {
+  padding: 10px;
+}
+
+.popup-container {
+  width: 500px;
+  height:  500px;
+  background: #3c5077;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  width: 800px;
+  height: 600px;
+  background: pink;
+  border-radius: 6px;
+  position: absolute;
+  top: 0%;
+  left:  50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+  visibility: visible;
+  top:  50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+  width:  100px;
+  margin-top: -50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup button {
+  width:  100%;
+  margin-top: 50px;
+  padding:  10px 0;
+  background:  #6fd649;
+  color:  #fff;
+  border:  0;
+  outline:  none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor:  pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user_textbox {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 500px;
+  width: 500px;
+}
+
+.highlight {
+    display: inline;
+    background-color: yellow;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.side-panel {
+  display: none;
+  width: 300px;
+  flex-shrink: 0;
+  padding: 20px;
+  color: #ffffff;
+  background: lightpink;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.list-group {
+  padding:  5px 5px 5px 5px;
+}
+
+.typeBox{
+  height: 500px;
+  width: 1000px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.userInputFieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-panel-open .side-panel {
+  display: initial;
+}
+
+.test-box {
+  background-color: skyblue;
+  padding: 10px;
+  border: solid;
+  border-color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+table.dataframe, .dataframe th, .dataframe td {
+  border:  solid;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  background-color: papayawhip;
+}
+
+tr:nth-child(odd)   { background-color:#eee; }
+tr:nth-child(even)  { background-color:#fff; }
+
+tr:hover            { background-color: #ffff99;}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
